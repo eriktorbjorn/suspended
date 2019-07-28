@@ -98,7 +98,7 @@
 	(SYNONYM GREGOR FRANKL)
 	(FLAGS NDESCBIT TOUCHBIT)
 	(OBJDESCS <PLTABLE 1 1 1 1 1 1 "Gregory""Gregory""Gregory""Gregory""Gregory""Gregory" 0 0 0 0 0 0>)
-	(CLC-TXT <PLTABLE 0 0 "Refer to your manual for futher data.">)>
+	(CLC-TXT <PLTABLE 0 0 "Refer to your manual for further data.">)>
 
 <OBJECT FCS
 	(IN GLOBAL-OBJECTS)
