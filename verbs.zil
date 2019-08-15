@@ -9,7 +9,7 @@
 
 "SUBTITLE DESCRIBERS"
 
-<ROUTINE V-LOOK ("AUX" STR AV)
+<ROUTINE V-LOOK ()
 	 <COND (<IN-MOTION? ,WINNER>
 		<ROBOT-TELL "Moving through " <>>)
 	       (ELSE
@@ -48,7 +48,7 @@
 		     <NOT <EQUAL? ,WINNER ,WHIZ ,WALDO>>>
 		<CORRIDOR-LOOK>)>>
 
-<ROUTINE DESCRIBE-ROBOTS ("AUX" (COUNT -1) (OFFS 0) OBJ LEADER RC)
+<ROUTINE DESCRIBE-ROBOTS ("AUX" (COUNT -1) (OFFS 0) OBJ RC)
 	 <COND (<IN? ,WINNER ,CAR>
 		<SET COUNT 0>)>
 	 <REPEAT ()
@@ -277,8 +277,8 @@
 	 <V-SCORE>
 	 <QUIT>>
 
-<ROUTINE V-QUIT ("OPTIONAL" (ASK? T) "AUX" SCOR)
-	 #DECL ((ASK?) <OR ATOM <PRIMTYPE LIST>> (SCOR) FIX)
+<ROUTINE V-QUIT ("OPTIONAL" (ASK? T))
+	 #DECL ((ASK?) <OR ATOM <PRIMTYPE LIST>>)
 	 <V-SCORE>
 	 <COND (<OR <AND .ASK?
 			 <TELL
@@ -627,7 +627,7 @@ to strike up the band."
 "The CLC limits my load to 2 objects."
 "What do you want from me? Even with the extra extension, I can only do 7 things at once!">>
 
-<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ WLOC TBL)
+<ROUTINE ITAKE ("OPTIONAL" (VB T) "AUX" CNT OBJ WLOC)
 	 #DECL ((VB) <OR ATOM FALSE> (CNT) FIX (OBJ) OBJECT)
 	 <COND (<NOT <FSET? ,PRSO ,TAKEBIT>>
 		<COND (.VB
@@ -867,7 +867,7 @@ D ,PRSO " and both tumble to the ground." CR>
 		<ROBOT-TELL "It's " <>>)>
 	 <TELL "already " .ON-OFF "." CR>>
 
-<ROUTINE V-OPEN ("AUX" F STR)
+<ROUTINE V-OPEN ()
 	 <COND (<FSET? ,PRSO ,VEHBIT>
 		<ROBOT-TELL "The " <>>
 		<TELL D ,CAR 
@@ -1050,8 +1050,7 @@ Copyright (c) 1983 Infocom, Inc.  All rights reserved.">
 		<TELL D ,PRSO "." CR>)>
 	 <RFATAL>>
 
-<ROUTINE V-BOARD ("AUX" AV)
-	 #DECL ((AV) OBJECT)
+<ROUTINE V-BOARD ()
 	 <COND (<NOT <EQUAL? ,CAR-FULL 0>>
 		<ROBOT-TELL "There's no room in there for me, too.">
 		<RTRUE>)>
@@ -1082,8 +1081,8 @@ Copyright (c) 1983 Infocom, Inc.  All rights reserved.">
 	 ;<APPLY <GETP ,PRSO ,P?ACTION> ,M-ENTER>
 	 ;<RTRUE>>
 
-<ROUTINE V-THROUGH ("OPTIONAL" (OBJ <>) "AUX" M TBL)
-	#DECL ((OBJ) <OR OBJECT FALSE> (M) <PRIMTYPE VECTOR>)
+<ROUTINE V-THROUGH ("OPTIONAL" (OBJ <>))
+	#DECL ((OBJ) <OR OBJECT FALSE>)
 	<COND (<AND <NOT .OBJ> <FSET? ,PRSO ,VEHBIT>>
 	       <PERFORM ,V?BOARD ,PRSO>
 	       <RTRUE>)
@@ -1104,8 +1103,8 @@ Copyright (c) 1983 Infocom, Inc.  All rights reserved.">
 		<MOVE ,WINNER ,WINNER-HERE>
 		<SETG CAR-FULL 0>)>>
 
-<ROUTINE GOTO (RM "OPTIONAL" (V? T) "AUX" (WLOC <LOC ,WINNER>) OLIT 
-	       (COUNT 0) L F)
+<ROUTINE GOTO (RM "OPTIONAL" (V? T) "AUX" (WLOC <LOC ,WINNER>) OLIT
+	       (COUNT 0) F)
 	 #DECL ((RM WLOC) OBJECT)
 	 <SET OLIT ,LIT>
 	 <MOVE ,WINNER .RM>
@@ -1417,7 +1416,7 @@ Copyright (c) 1983 Infocom, Inc.  All rights reserved.">
 		"If only I could, I could release some of this built-up tension."
 		"The CLC is the only one who'd listen if I did.">>
 
-<ROUTINE V-PLUGIN ("AUX" TBL) 
+<ROUTINE V-PLUGIN ()
 	 <COND (<NOT <WHIZ?>>
 		<ROBOT-YUKS>)
 	       (,PLUGGED-IN
@@ -1596,8 +1595,8 @@ Copyright (c) 1983 Infocom, Inc.  All rights reserved.">
 
 <ROUTINE V-CLIMB-FOO () <V-CLIMB-UP ,P?UP T>>
 
-<ROUTINE V-CLIMB-UP ("OPTIONAL" (DIR ,P?UP) (OBJ <>) "AUX" X)
-	 #DECL ((DIR) FIX (OBJ) <OR ATOM FALSE> (X) TABLE)
+<ROUTINE V-CLIMB-UP ("OPTIONAL" (DIR ,P?UP) (OBJ <>))
+	 #DECL ((DIR) FIX (OBJ) <OR ATOM FALSE>)
 	 <COND (<GETPT ,WINNER-HERE .DIR>
 		<DO-WALK .DIR>
 		<RTRUE>)

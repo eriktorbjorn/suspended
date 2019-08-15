@@ -295,7 +295,7 @@ the proper use of space."
 	(ADJECTIVE HIGH EXTENDING TOP FURTHEST FARTHEST STABLE)
 	(CAPACITY 50)>
 
-<ROUTINE TOPSHELF-FCN ("AUX" TBL)
+<ROUTINE TOPSHELF-FCN ()
 	 <COND (<AND <VERB? LOOK-INSIDE>
 		     <NOT ,ON-WEDGE>>
 		<ROBOT-TELL "It's too high up there.">)
@@ -1498,7 +1498,7 @@ FC: Sizzle, pop, and snap-crackly noises. The delicious smell of fried robot. Mm
 	(CAPACITY 5)
 	(ACTION SOCKET-FCN)>
 
-<ROUTINE SOCKET-FCN ("AUX" TBL)
+<ROUTINE SOCKET-FCN ()
 	 <COND (<VERB? CLOSE>
 		<ROBOT-YUKS>)>>
 
