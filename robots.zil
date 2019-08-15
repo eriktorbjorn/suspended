@@ -701,7 +701,7 @@ Extrapolation based on current weather systems and food supplies:|
 		<SETG SCORE <+ ,SCORE </ <- 40 ,DEGREES> 3>>>)>
 	 <COND (<AND <G? ,MOVES ,RTD-KILLS>
 		     <L? ,FOOD-TONS 50>>
-		<SETG SCORE <+ .SCORE 1>>)>
+		<SETG SCORE <+ ,SCORE 1>>)>
 	 <DO-RTD>
 	 <SETG TOTAL-SCORE <+ ,TOTAL-SCORE ,SCORE>>
 	 <COND (<G? ,TOTAL-SCORE 30000>
